@@ -1,15 +1,16 @@
 # Functions
 
-## Overview
-Functions are the single most important unit of code in JavaScript. From now on, almost all of the JavaScript code that we write will be enclosed in a function.
+## Problem Statement 
+Functions are the single most important unit of code in JavaScript. Much like a `<div>` in HTML, functions serve as ways to enclose bits of Javascript code to signify to other developers that this code all goes together. Functions allow us to keep our code clean and [DRY][dry], concepts that you'll learn a little bit more about later. From now on, almost all of the JavaScript code that we write will be enclosed in a function.
 
 ## Objectives
-1. Explain what a function is and how it helps us organize and repeat code.
-2. Recognize functions in the wild by looking for the invocation operator — `()`.
-3. Declare a new function and describe its composition.
-4. Use a `return` statement to exit a function and return a value.
+1. Explain what a function is
+2. Recognize functions by looking for the invocation operator — `()`
+3. Declare a new function and describe its composition
+4. Use a `return` statement to exit a function and return a value
 
-## Snacks, snacks, snacks, snacks, snacks, snacks
+##Explain what a function is and how it helps us organize and repeat code 
+### Snacks, snacks, snacks, snacks, snacks, snacks
 Here at Flatbook HQ, we love our snacks.
 
 <picture>
@@ -31,12 +32,6 @@ In the olden days, we had a super inefficient method of snacking. Anyone wanting
 10. Head back upstairs to work.
 
 The system worked well enough, but it wasn't a very efficient way to snack — we were repeating the same set of actions again and _again_ and ***again***. And we ***hate*** repetitive work.
-
-<picture>
-  <source srcset="https://curriculum-content.s3.amazonaws.com/web-development/js/basics/functions-readme/repetitive_work.webp" type="image/webp">
-  <source srcset="https://curriculum-content.s3.amazonaws.com/web-development/js/basics/functions-readme/repetitive_work.gif" type="image/gif">
-  <img src="https://curriculum-content.s3.amazonaws.com/web-development/js/basics/functions-readme/repetitive_work.gif" alt="Repetitive work.">
-</picture>
 
 As programmers, we like to optimize everything about our workflow. Taking the occasional break from work and stretching our legs is always welcome, but there are so many inefficiencies in our snacking method that would be great to abstract away. Ten whole steps for a simple snack is just too dang many.
 
@@ -70,12 +65,6 @@ Check it out, we made fully half the steps much more efficient! Our new snacking
 - Walk back to desk.
 
 By delegating a few of the more onerous tasks to our favorite new piece of hardware, we better organized the snacking process and made it much more easily repeatable. Previously, multiple snacks meant multiple trips down to the bodega, but now additional snacks are a mere button away!
-
-<picture>
-  <source srcset="https://curriculum-content.s3.amazonaws.com/web-development/js/basics/functions-readme/multiple_snacks.webp" type="image/webp">
-  <source srcset="https://curriculum-content.s3.amazonaws.com/web-development/js/basics/functions-readme/multiple_snacks.gif" type="image/gif">
-  <img src="https://curriculum-content.s3.amazonaws.com/web-development/js/basics/functions-readme/multiple_snacks.gif" alt="Multiple snacks!">
-</picture>
 
 ## Our vending machine in code
 Let's represent our new snack flow as some JavaScript code. We'll create two variables, one to represent the snack selection and the other for the amount of money that was inserted (in cents):
@@ -245,29 +234,29 @@ switch (snackSelection) {
 }
 ```
 
-Test that out in your browser's JS console to make sure everything's working correctly. Don't get too attached to it, though, because good gracious that looks like a **complete and total mess**. Massive, nested control flow structures are one of the most terrifying things in programming, and this one's a doozy. Among the many problems with this approach, there are two overriding concerns:
-1. The `case`s in our `switch` statement are responsible for far too much disparate logic: whether the snack selection is valid, whether enough money was inserted, how much change is due, etc. Those are all separate pieces of logic that are currently tangled up together, living in the same place.
+Test that out in your browser's JS console to make sure everything's working correctly. Don't get too attached to it, though, because good gracious that looks like a **complete and total mess**. Massive, nested control flow structures are one of the most terrifying things in programming, and this one's a doozy. Among the many problems with this approach, there are two major concerns:
+1. The `case`s in our `switch` statement are responsible for far too much logic: whether the snack selection is valid, whether enough money was inserted, how much change is due, etc. Those are all separate pieces of logic that are currently tangled up together, living in the same place.
 2. If you tested the code in your browser, you probably noticed something super annoying: our current implementation as a giant `switch` statement is **single-use-only**. If we want to run the code with different user inputs, we need to copy and paste the entire `switch` statement all over again. Twice the functionality, twice the code. Want to dispense ten snacks? Ten times as much code.
 
-Neither of those things are good! Our code should ideally be composed of a series of small, well-scoped, self-contained units that each perform a single task. We should have one unit that checks if the snack selection is valid; one that checks if enough money was inserted; one that calculates change due; and one that dispenses the item and any change to the user. Writing code in a modular fashion like this makes it much easier to test each individual piece of code and debug any errors that we encounter. If everything's smashed together in a single, massive block, we have to comb through the entire block hunting for a bug. In a more modular setup, we can home in on the specific piece that's failing and ignore the rest of the code.
+Neither of those things are good! Our code should ideally be composed of a series of small, well-scoped, self-contained units that each perform a single task. We should have one unit that checks if the snack selection is valid; one that checks if enough money was inserted; one that calculates change due; and one that dispenses the item and any change to the user. Writing code in a modular fashion like this makes it much easier to test each individual piece of code and debug any errors that we encounter. If everything's smashed together in a single, massive block, we have to comb through the entire block hunting for a bug. In a more modular setup, we can narrow down our troubleshooting to the specific piece that's failing and ignore the rest of the code.
 
-In addition, we want to minimize the cost of repeating actions over and over and over. If, in order to run the same sequence of actions a second time, we need a second copy of the exact same lines of code, we've failed as programmers. Remember, computers are **phenomenal** at repeating actions again and again and again. They are quite literally designed to be great at that!
+In addition, we want to make our code as clean and DRY[dry] (<u>D</u>on't <u>R</u>epeat <u>Y</u>ourself) as possible. If, in order to run the same sequence of actions a second time, we need a second copy of the exact same lines of code, we've failed as programmers. Remember, computers are **phenomenal** at repeating actions again and again and again. They are quite literally designed to be great at that!
 
 Lucky for us, there's a construct in the JavaScript language that provides a perfect antidote to both of these issues: the _function_.
 
-## What is a function?
+#### What is a function?
 **A function is an object that contains a sequence of actions (JavaScript statements) that we can execute whenever we want and however many times we want**. A function can accept a number of inputs, perform some internal actions that are hidden from the world outside of the function, and then return a value back to that outer environment.
 
 In our snacking example of the bodega vs. the vending machine, the vending machine operates as a function. It takes a lot of the tasks that we were doing manually and abstracts them away, letting a computer handle the things that a computer is good at. We don't care what happens inside the vending machine; we just know that, if we provide it some inputs (a snack selection and some money), it will take care of the rest and return to us some output (either a snack or an error message). Instead of executing all of the old steps one-by-one every time we want a snack, we can use the vending machine as a shorter, standardized way to achieve the same result.
 
-However, we completely blew it when we translated our vending machine into code. Our coded vending machine is, indeed, a sequence of JavaScript statements, but the similarities end there. We can't create our vending machine and then wait before executing it. We also can't run it multiple times without copying and pasting the entire thing multiple times. Failure!
+However, we completely blew it when we translated our vending machine into code. Our coded vending machine is a sequence of JavaScript statements, but the similarities end there. We can't create our vending machine and then wait before executing it. We also can't run it multiple times without copying and pasting the entire thing multiple times. Failure!
 
 Let's start over, this time creating a real JavaScript function.
 
-## Functions are familiar
+## Recognize Functions by Looking for the Invocation Operator — `()`
 We've already used a few functions built into JavaScript — we just didn't refer to them as such. `Math.random()`, `Number.parseInt()`, `console.log()`, and `alert()` are all examples of JavaScript functions. You've probably already identified the hallmark of a function — `()`, the invocation operator. We'll talk about that shortly, but let's first move beyond the built-in goodies and learn how to declare our own functions.
 
-## Declaring a function
+## Declare a New Function and Describe Its Composition
 Declaring a function is the equivalent of designing the vending machine:
 - Identifying how many inputs it should accept.
   + E.g., the snack selection and the amount of money inserted.
@@ -276,7 +265,7 @@ Declaring a function is the equivalent of designing the vending machine:
 - Defining the logic that operates on the inputs and results in the output.
   + E.g., the program inside the vending machine that checks whether enough money was inserted, returns the correct amount of change, and initiates the process of dispensing the snack.
 
-There are a few different ways to declare a new function in JavaScript, but the primary one is in a _function statement_ with the `function` keyword:
+There are a few different ways to declare a new function in JavaScript, but the one that you will use most often is a _function statement_ with the `function` keyword:
 ```js
 function vendingMachine () {
   // Code to execute
@@ -298,7 +287,7 @@ function vendingMachine (snackSelection, moneyInserted) {
 }
 ```
 
-***NOTE***: When we list the placeholders in a function declaration, they are called _parameters_, but the actual values passed to the function when it's invoked are called _arguments_. However, you'll often hear them used interchangeably.
+***NOTE***: When we list the placeholders in a function declaration, they are called _parameters_, but the actual values passed to the function when it's invoked are called _arguments_. However, you'll often hear them used interchangeably. These parentheses are used whether you are passing in arguments or not.
 
 ### Curly braces — `{ }`
 A pair of curly braces denotes the _function body_, the set of statements that are executed when we invoke the function. It should look very familiar from the lesson on conditional statements — it's just a code block!
@@ -315,9 +304,9 @@ function vendingMachine (snackSelection, moneyInserted) {
 }
 ```
 
-The function body encapsulates everything that happens inside the function (or inside the vending machine). From the moment we invoke the function with the appropriate arguments (our snack selection and enough coins or bills) to when the function exits and returns a value (when our snack pops out of the machine), everything in between occurs in the function body.
+The function body contains everything that happens inside the function (or inside the vending machine). From the moment we call the function with the appropriate arguments (our snack selection and enough coins or bills) to when the function exits and returns a value (when our snack pops out of the machine), everything in between occurs in the function body.
 
-## Invoking a function
+#### Invoking a Function
 Functions are JavaScript objects, but the key difference is that they are executable — they can be _invoked_. Just like addition, assignment, and comparison, there is an operator for invocation: the aptly-named _invocation operator_.
 
 The invocation operator is a pair of parentheses immediately following the function name, like so:
@@ -341,14 +330,9 @@ function vendingMachine (snackSelection, moneyInserted) {
 vendingMachine('Pretzels', 100);
 ```
 
-## Function arguments
-<picture>
-  <source srcset="https://curriculum-content.s3.amazonaws.com/web-development/js/basics/functions-readme/function_argument.webp" type="image/webp">
-  <source srcset="https://curriculum-content.s3.amazonaws.com/web-development/js/basics/functions-readme/function_argument.gif" type="image/gif">
-  <img src="https://curriculum-content.s3.amazonaws.com/web-development/js/basics/functions-readme/function_argument.gif" alt="Function arguments.">
-</picture>
+#### Function Arguments
 
-Inside the function body, the passed-in arguments become local variables that are only available inside the function:
+Inside the function body, the passed-in arguments become local variables that are _only available inside the function_:
 ```js
 function vendingMachine (snackSelection, moneyInserted) {
   console.log('Snack selection:', snackSelection);
@@ -407,7 +391,7 @@ vendingMachine('Pretzels', 100, 'Chips', 75);
 
 The function still works perfectly fine, but `'Pretzels'` and `100` are the only arguments that get assigned to local variables.
 
-## `return` statements
+## Use a `return` Statement to Exit a Function and Return a Value
 To this point, all of our functions have returned a value of `undefined` when invoked. When a function is invoked, it will **always** return a value. By default, that value is `undefined`, but we can specify a different value with a `return` statement:
 ```js
 function vendingMachine (snackSelection, moneyInserted) {
@@ -456,7 +440,7 @@ vendingMachine('Pretzels', 100);
 
 The JavaScript engine exits after `return snackSelection;` and never makes it to the `console.log()` statement.
 
-## Refactoring into a function
+#### Refactoring Into a Function
 Let's take our massive, `switch` statement-powered vending machine code and wrap it in a function, making it easy to run again and again without repeating the entire `switch` statement:
 ```js
 function vendingMachine (snackSelection, moneyInserted) {
@@ -584,14 +568,14 @@ Right?!
   <img src="https://curriculum-content.s3.amazonaws.com/web-development/js/basics/functions-readme/wrong.gif" alt="Wrong wrong wrong wrong.">
 </picture>
 
-## Refactoring into many functions
+#### Refactoring into many functions
 Our function, while now wonderfully reusable, is still massively overcomplicated. Remember, each function should have one responsibility, and ours currently has at least five: checking whether the snack selection is valid; getting the price of the snack selection; checking whether enough money was inserted; calculating the amount of change; constructing and returning the appropriate message after the transaction is complete.
 
-This is bad for a number of reasons, chiefly that's it's darn difficult to read! Maybe we understand it well enough right now, but imagine being a complete outsider (or yourself, six months from now) and trying to discern the flow of information through that mess of a nested control flow. It's also unnecessarily difficult to debug, as several distinct logical processes are coupled together within a single, monolithic function. If there's an error in the code that checks the amount of money inserted, it might not show up until the function returns its final message. If we had that checking logic isolated in its own function, we could test it in isolation from the rest of the code. However, as currently constructed, we'd have to comb through the behemoth line-by-line.
+This is bad for a number of reasons, chiefly that's it's darn difficult to read! Maybe we understand it well enough right now, but imagine being a complete outsider (or your future self) and trying to discern the flow of information through that mess of a nested control flow. It's also unnecessarily difficult to debug, as several distinct logical processes are coupled together within a single, monolithic function. If there's an error in the code that checks the amount of money inserted, it might not show up until the function returns its final message. If we had that checking logic isolated in its own function, we could test it in isolation from the rest of the code. However, as currently constructed, we'd have to comb through the behemoth line-by-line.
 
-Last, but not least, there is **so much repeated code** within our current `vendingMachine()` function. It's not at all [DRY][dry]. Every single `case` has the exact same structure; the only differences are the name and cost of the snack. Let's start modularizing our code a bit better, extracting some pieces of logic into separate functions.
+Last, but not least, there is **so much repeated code** within our current `vendingMachine()` function. Remember, we want our code to be as dry as possible, and this is not at all [DRY][dry]. Every single `case` has the exact same structure; the only differences are the name and cost of the snack. Let's start cleaning up our code a bit, and remove some pieces of logic into separate functions.
 
-### `validateSelection()`
+#### `validateSelection()`
 For our first reorganization, we're going to extract the logic that's handled by the `default` in our massive `switch` statement. Currently, if an invalid selection is made, none of the `case`s in the `switch` will match. We'll eventually end up in the `default`, which then returns the string `'Please select a valid snack.'`. Instead, let's create a new function with a single responsibility — checking if the selection is valid:
 ```js
 function validateSelection (selection) {
@@ -627,7 +611,7 @@ We removed the `default` case from `vendingMachine()`. In its place, we added a 
 - We cleaned up our main function, `vendingMachine()`, a bit.
 - We extracted the logic of checking the validity of the user's selection into its own, self-contained function. That logic can now be tested and debugged in isolation from the rest of the code.
 
-### `getPrice()`
+#### `getPrice()`
 Next up, let's extract the price of each item out of our `vendingMachine()` function:
 ```js
 function validateSelection (selection) {
@@ -678,7 +662,8 @@ function calculateChange (inserted, price) {
 
 While that is technically isolating a self-contained piece of logic in its own function, it just feels like overkill. The key thing to remember and prioritize above all else is **readability**. If your code is modular and readable enough that an unfamiliar programmer can look at it and quickly discern how it works, you've done a great job.
 
-If you haven't been coding along up to this point, take a moment to recreate these functions in your browser's JavaScript console. Play around with them. Make some modifications: rename variables and arguments, switch the ordering of statements, and generally mess around with anything that you're finding a bit difficult to understand at this point. Break things, and then try to figure out what broke and why (and how you could fix it). If you want to start fresh at any point, simply refresh the page on which you have the JS console open, and everything will be reset.
+## Conclusion 
+If you haven't been coding along up to this point, take a moment to recreate these functions in your browser's JavaScript console. Play around with them. Make some modifications: rename variables and arguments, switch the ordering of statements, and generally mess around with anything that you're finding a bit difficult to understand at this point. There is a `vendingMachine.js` file associated with this lesson - try playing around with the order of the functions too. Break things, and then try to figure out what broke and why (and how you could fix it). If you want to start fresh at any point, simply refresh the page on which you have the JS console open, and everything will be reset.
 
 That's all, folks!
 
