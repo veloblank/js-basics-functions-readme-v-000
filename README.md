@@ -287,8 +287,7 @@ the specific area that's failing and ignore the rest of the code. This way of
 writing functions is commonly referred to as the single responsibility
 principle.
 
-Remember, we want to make our code as clean and DRY[dry] (<u>D</u>on't
-<u>R</u>epeat <u>Y</u>ourself) as possible. If, in order to run the same
+Remember, we want to make our code as clean and [DRY][dry] as possible. If, in order to run the same
 sequence of actions a second time, we need a second copy of the exact same lines
 of code, we've found an opportunity to refactor. Remember, computers are
 designed to repeat actions as many times as humans need them to!
