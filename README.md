@@ -175,7 +175,7 @@ function exerciseDog(dogName, dogBreed) {
 ```
 
 When the function is _called_, it assigns `dogName = "Byron"` and `dogBreed =
-"poodle"`. The parameters are usable inside the funtion body _as if_ they had
+"poodle"`. The parameters are usable inside the function body _as if_ they had
 been set with `let` inside the function.
 
 Because our function is now more _general_, we can:
@@ -238,8 +238,8 @@ console.log(result);
 ```
 
 In JavaScript, when a function is _called_, when it encounters a `return`
-statement is returns the thing that appears to the right of the word. The thing
-could be a String, a Number or an _expression_ like `1 + 1` (which returns,
+statement it returns the thing that appears to the right of the word. The thing
+could be a `String`, a `Number` or an _expression_ like `1 + 1` (which returns,
 `2`, sensibly enough).
 
 When a `return` is reached in the code, no further code behavior happens.
