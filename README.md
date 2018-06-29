@@ -11,14 +11,14 @@ maintain.
 
 ## Objectives
 
-1. Define abstraction: renaming collections _abstractly_
+1. Define abstraction
 2. Explain that functions are abstractions
 3. Explain how to _call_ a function
 4. Define "Generalization"
 5. Demonstrate "Generalization" by using _parameters_ and _arguments_
 6. Demonstrate _return values_
 
-## Define Abstraction: Renaming Collections _abstractly_
+## Define Abstraction
 
 Abstraction comes from Latin roots which mean "to pull away." It's the
 "take-away" or "impression" of a whole thing.  As humans, we often take sets of
