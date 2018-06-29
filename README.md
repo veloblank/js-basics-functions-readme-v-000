@@ -15,7 +15,7 @@ maintain.
 2. Explain that functions are abstractions
 3. Explain how to _call_ a function
 4. Define "Generalization"
-5. Demonstrate "Generalization" by using _arguments_
+5. Demonstrate "Generalization" by using _parameters_ and _arguments_
 6. Demonstrate _return values_
 
 ## Define Abstraction: Renaming Collections _abstractly_
@@ -34,8 +34,7 @@ of abstractions.
 |Get two pieces of bread, put jam on one, put peanut butter on the other | Make a peanut butter and jelly sandwich |
 |Hermione, Harry, Ron | Troublesome Gryffindors |
 | visit site, create userid, create password, verify email address | Sign up for Flatbook|
-| get in the elevator, hit lobby button, exit elevator, walk to subway, take
-2/3 north at Wall Street station, exit at Times Square | Go home|
+| get in the elevator, hit lobby button, exit elevator, walk to subway, take 2/3 north at Wall Street station, exit at Times Square | Go home|
 
 We create abstractions to make it easier to shorten our sentences. We'd never
 get anything done if we couldn't abstract! We also use abstractions to decide
@@ -62,9 +61,9 @@ Let's describe a series of single, non-abstract, tasks:
 ```javascript
 console.log("Wake Byron the poodle");
 console.log("Leash Byron the poodle");
-console.log("Walk to the park Byron the poodle");");
+console.log("Walk to the park Byron the poodle");
 console.log("Throw the fribsee for Byron the poodle");
-console.log("Walk home with Byron the poodle");");
+console.log("Walk home with Byron the poodle");
 console.log("Unleash Byron the poodle");
 ```
 
@@ -75,11 +74,12 @@ name, we would do this:
 function exerciseByronThePoodle() {
   console.log("Wake Byron the poodle");
   console.log("Leash Byron the poodle");
-  console.log("Walk to the park Byron the poodle");");
+  console.log("Walk to the park Byron the poodle");
   console.log("Throw the fribsee for Byron the poodle");
-  console.log("Walk home with Byron the poodle");");
+  console.log("Walk home with Byron the poodle");
   console.log("Unleash Byron the poodle");
 }
+```
 
 This code is a _function declaration_.
 
@@ -104,16 +104,16 @@ it tells JavaScript to...invoke the function.
 ## Define "Generalization"
 
 Looking at our abstraction, `exerciseByronThePoodle()`, it's well, pretty
-concrete, the oppostive of abstract. It's concrete because it only works for
+concrete, the opposite of abstract. It's concrete because it only works for
 Byron the Poodle. Our function would be more _abstract_ if it were written for
 _all dogs_ and it just-so-happened that Byron the Poodle was one of the
 eligible things to undergo the function's processes. The process of moving from
 _concrete_ to _abstract_ is called "generalization."
 
-## Demonstrate "Generalization" By Using _Arguments_
+## Demonstrate "Generalization" By Using _Parameters_ And _Arguments_
 
 Let's make `exerciseByronThePoodle()` more general. Looking at the
-`console.log()` statments, we repeatedly refer to a dog's name and a dog's
+`console.log()` statements, we repeatedly refer to a dog's name and a dog's
 breed. Both of these are `Strings`. If we were to write them as JavaScript
 variables inside the function we might write `dogName` and `dogBreed`.
 
@@ -130,6 +130,7 @@ function exerciseByronThePoodle() {
   console.log(`Walk home with ${dogName} the ${dogBreed}`);
   console.log(`Unleash Byron ${dogName} ${dogBreed}`);
 }
+```
 
 If we _call_ this function, we'll get the exact _same_ result as
 `exerciseByronThePoodle()`.
@@ -173,16 +174,19 @@ function exerciseDog(dogName, dogBreed) {
   console.log(`Walk home with ${dogName} the ${dogBreed}`);
   console.log(`Unleash Byron ${dogName} ${dogBreed}`);
 }
+```
 
-When the function is _called_, it assigns `dogName = "Byron` and `dogBreed =
+When the function is _called_, it assigns `dogName = "Byron"` and `dogBreed =
 "poodle"`. The parameters are usable inside the funtion body _as if_ they had
 been set with `let` inside the function.
 
 Because our function is now more _general_, we can:
 
+```javascript
 exerciseDog("Boo", "terrier");
 exerciseDog("Jojo", "mutt");
 exerciseDog("Emmaline", "bernadoodle");
+```
 
 If we _don't provide_ the expected arguments, our parameters' values will be
 left `undefined` creating such humorous bugs as:
@@ -195,6 +199,7 @@ We can assign default arguments to our parameters.
 
 ```javascript
 function exerciseDog(dogName="ERROR the Broken Dog", dogBreed="Sick Puppy") {
+...
 ```
 
 In summary, we went from a list of operations, to a wrapped abstraction called
@@ -252,6 +257,7 @@ functions are defined:
 function functionName(arugment1, argument2, argument3) {
   body code goes here
 }
+```
 
 Functions are called, or executed, or invoked, by entering the function's name
 followed by the _invocation operator_, `()`. Arguments that the function
@@ -259,3 +265,10 @@ declaration expects should be passed inside of the invocation operator.
 Functions can, but are not obligated to, return _return values_ at the end of
 their execution. They often summarize what happened in the function or provide
 information about success (or failure) of the function.
+
+## Resources
+
+- MDN
+  + [Functions — reusable blocks of code](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Functions)
+  + [Function return values](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Return_values)
+  + [Function declaration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
