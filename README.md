@@ -1,12 +1,14 @@
 # Functions
 
-## Problem Statement 
+## Problem Statement
+
 Functions are the single most important unit of code in JavaScript. Much like a
-`<div>` in HTML, functions serve as ways to enclose bits of Javascript code to
-signify to other developers that this code all goes together. Functions allow us
-to keep our code clean and [DRY][dry](<u>D</u>on't <u>R</u>epeat <u>Y</u>ourself), concepts that you'll learn a little bit
-more about later. From now on, almost all of the JavaScript code that we write
-will be enclosed in a function. 
+`<div>` in HTML, functions serve as ways to group together bits of JavaScript
+code.
+
+Code that's been separated into functions is easier to read and easier to
+maintain. Let's learn how to write some functions!
+
 
 ## Objectives
 1. Explain what a function is
