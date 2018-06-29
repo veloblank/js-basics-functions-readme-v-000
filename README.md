@@ -130,12 +130,12 @@ function exerciseByronThePoodle() {
 }
 ```
 
-If we _call_ this function, we'll get the exact _same_ result as
+If we _call_ this function, we'll get the exact _same_ result as the original
 `exerciseByronThePoodle()`.
 
 But there are some advances here. We define the `dogName` and `dogBreed` in
-only one place.  We could change things a bit easier now by changing these
-variables instead of than using our editor's find-and-replace function.
+only one place. That means we can change things a bit easier now by changing
+these variables instead of using find-and-replace.
 
 Our problem now is that our function has the `dogName` and `dogBreed` locked
 in. If we could make it possible to tell each _call_ of the function "Hey use
