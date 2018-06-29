@@ -4,10 +4,8 @@
 
 Functions are the single most important unit of code in JavaScript. Much like a
 `<div>` or a `<section>` in HTML, functions serve as ways to group together
-related bits of JavaScript code.
-
-We group code together in functions because its easier to read and easier to
-maintain.
+related bits of JavaScript code.  Grouped code is easier to read, debug, and
+improve.  
 
 ## Objectives
 
@@ -31,30 +29,27 @@ of abstractions.
 | Single Units | Abstraction |
 |-------------|--------------|
 |John, Paul, George, Ringo | The Beatles |
-|Get two pieces of bread, put jam on one, put peanut butter on the other | Make a peanut butter and jelly sandwich |
+|Get two pieces of bread, put jam on ... | Make a peanut butter and jelly sandwich |
 |Hermione, Harry, Ron | Troublesome Gryffindors |
-| visit site, create userid, create password, verify email address | Sign up for Flatbook|
-| get in the elevator, hit lobby button, exit elevator, walk to subway, take 2/3 north at Wall Street station, exit at Times Square | Go home|
+| visit site, make userid, make password... | Sign up for Flatbook|
+| get in the lift, hit "G" button, exit elevator, walk to subway... | Go home|
 
 We create abstractions to make it easier to shorten our sentences. We'd never
 get anything done if we couldn't abstract! We also use abstractions to decide
 what doesn't fit or what should fit. "Mozart" doesn't belong with The Beatles,
 but he does fit with "Baroque Masters."
 
-Abstractions make it easier for us to think about complex activities. Writing
-code is certainly a complex activity. So humans have brought the pattern of
-abstracting work to JavaScript. An abstraction that holds work is called a
-_function_.
+Abstractions help us think about complex activities. Humans  brought the pattern of
+"abstracting work" to JavaScript. Abstractions that hold work are called
+_functions_.
 
 ## Explain That Functions Are Abstractions
 
-Functions are _abstractions_ because they take a series of operations and lump
-them together under a new name. We'll call that the _function name_. More
-formally:
+Functions combine series of steps under a new name. That's why they're
+_abstractions_. We'll call that the _function name_. More formally:
 
-**A function is an object that contains a sequence of actions (JavaScript
-statements) that we can execute or _call_ whenever we want and however many
-times we want**.
+**A function is an object that contains a sequence JavaScript
+statements.  We can execute or _call_ it multiple times.**
 
 Let's describe a series of single, non-abstract, tasks:
 
@@ -67,8 +62,7 @@ console.log("Walk home with Byron the poodle");
 console.log("Unleash Byron the poodle");
 ```
 
-In JavaScript, to abstract these single actions into a collective abstraction
-name, we would do this:
+To abstract these single actions into a collective name, we do:
 
 ```javascript
 function exerciseByronThePoodle() {
@@ -100,6 +94,10 @@ it tells JavaScript to...invoke the function.
 
 > **LEARNING TIP**: Feel free to define a small function in the JavaScript
 > console to test this out. You can copy the syntax provided above.
+
+A _function_ must be _declared_ before it can be _called_. Saying
+`exerciseByronThePoodle()` before the function has been written stumps
+JavaScript.
 
 ## Define "Generalization"
 
@@ -188,11 +186,13 @@ exerciseDog("Jojo", "mutt");
 exerciseDog("Emmaline", "bernadoodle");
 ```
 
-If we _don't provide_ the expected arguments, our parameters' values will be
-left `undefined` creating such humorous bugs as:
+If expected arguments aren't given, the parameters won't be set. The
+parameters' values will be `undefined`.  This is just like non-initialized
+variables; set them else they're `undefined`.  **This will not cause an error
+in JavaScript**. This can lead to humorous bugs like:
 
-```javascript
-console.log(`Wake undefined the undefined`);
+```text
+"Wake undefined the undefined"  // From: console.log("Wake ${dogName} the ${dogBreed}");
 ```
 
 We can assign default arguments to our parameters. 
@@ -202,8 +202,11 @@ function exerciseDog(dogName="ERROR the Broken Dog", dogBreed="Sick Puppy") {
 ...
 ```
 
-In summary, we went from a list of operations, to a wrapped abstraction called
-a function to a more general version of the function.
+In summary, we went from:
+
+* a list of operations
+* to a wrapped abstraction called a function
+* to a more general version of the function
 
 ## Demonstrate _Return Values_
 
@@ -239,11 +242,12 @@ statement is returns the thing that appears to the right of the word. The thing
 could be a String, a Number or an _expression_ like `1 + 1` (which returns,
 `2`, sensibly enough).
 
-When a `return` is reached in the code, no further code behavior happens. In
-the example above if `weatherToday` is `truthy` **the only thing that happens**
-is the evaluation of `\`${dogName} did not exercise due to rain\`;`
+When a `return` is reached in the code, no further code behavior happens.
+Above, if `weatherToday` is `truthy` **the only thing that happens** is the
+evaluation of the `String`.
 
-Return values can be saved to variables, or used as inputs to other functions.
+Return values can be saved to variables. Or they can be used as inputs to other
+functions.
 
 ## Conclusion
 
@@ -259,12 +263,12 @@ function functionName(arugment1, argument2, argument3) {
 }
 ```
 
-Functions are called, or executed, or invoked, by entering the function's name
-followed by the _invocation operator_, `()`. Arguments that the function
-declaration expects should be passed inside of the invocation operator.
-Functions can, but are not obligated to, return _return values_ at the end of
-their execution. They often summarize what happened in the function or provide
-information about success (or failure) of the function.
+Functions are "called" by entering the function's name followed by the
+_invocation operator_, `()`. "Invoke" or "execute" mean the same thing.
+Arguments that the function declaration expects should be passed inside of the
+invocation operator.  Functions can, but are not obligated to, return _return
+values_ at the end of their execution. Return values are often results of a
+process, grand totals, or success / failure data.
 
 ## Resources
 
