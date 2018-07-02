@@ -144,7 +144,7 @@ Our problem now is that our function has the `dogName` and `dogBreed` locked
 in. If we could make it possible to tell each _call_ of the function "Hey use
 these `String`s instead" we could get more _general_.
 
-That's the purpose of _parameters. _Parameters_ are locally-scoped variables
+That's the purpose of _parameters_. _Parameters_ are locally-scoped variables
 that are only usable inside the function. In our example, our variables
 `dogName` and `dogBreed` should become _parameters_.  They're defined inside of
 the _function declaration's_ `()`.
