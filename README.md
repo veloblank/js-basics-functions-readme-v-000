@@ -5,7 +5,7 @@
 Functions are the single most important unit of code in JavaScript. Much like a
 `<div>` or a `<section>` in HTML, functions serve as ways to group together
 related bits of JavaScript code.  Grouped code is easier to read, debug, and
-improve.  
+improve.
 
 ## Objectives
 
@@ -39,7 +39,7 @@ get anything done if we couldn't abstract! We also use abstractions to decide
 what doesn't fit or what should fit. "Mozart" doesn't belong with The Beatles,
 but he does fit with "Baroque Masters."
 
-Abstractions help us think about complex activities. Humans  brought the pattern of
+Abstractions help us think about complex activities. Humans brought the pattern of
 "abstracting work" to JavaScript. Abstractions that hold work are called
 _functions_.
 
@@ -50,6 +50,9 @@ _abstractions_. We'll call that the _function name_. More formally:
 
 **A function is an object that contains a sequence JavaScript
 statements.  We can execute or _call_ it multiple times.**
+
+To _call_ a function means to run the independent pieces that make it.
+Synonyms to _call_ that you might see are _execute_ and _invoke_.
 
 Let's describe a series of single, non-abstract, tasks:
 
@@ -86,27 +89,27 @@ Here we have _abstracted_ 6 activities into 1 activity:
 
 ## Explain How To _Call_ a Function
 
-To execute a function you add `()` after its name. To execute the abstraction
-we just defined in JavaScript you run: `exerciseByronThePoodle()`. When we ran
+To execute a function you add `()` after its name. To execute the function we
+just defined in JavaScript, you run: `exerciseByronThePoodle()`. When we ran
 `document.querySelector()`, we were _calling_ a function. `Math.floor()` is
 another function. That `()` is also known as the _invocation operator_ because
 it tells JavaScript to...invoke the function.
 
-> **LEARNING TIP**: Feel free to define a small function in the JavaScript
-> console to test this out. You can copy the syntax provided above.
+> **LEARNING TIP**: Try defining a small function in the JavaScript console to
+> test this out. You can copy the syntax provided above.
 
-A _function_ must be _declared_ before it can be _called_. Saying
-`exerciseByronThePoodle()` before the function has been written stumps
-JavaScript.
+A _function_ must be _declared_ before it can be called. Calling
+`exerciseByronThePoodle()` before the function has been declared causes an
+error for JavaScript.
 
 ## Define "Generalization"
 
-Looking at our abstraction, `exerciseByronThePoodle()`, it's well, pretty
-concrete, the opposite of abstract. It's concrete because it only works for
-Byron the Poodle. Our function would be more _abstract_ if it were written for
-_all dogs_ and it just-so-happened that Byron the Poodle was one of the
-eligible things to undergo the function's processes. The process of moving from
-_concrete_ to _abstract_ is called "generalization."
+Looking at our abstraction, `exerciseByronThePoodle()`, pretty concrete, the
+opposite of abstract. It's concrete because it only works for Byron the Poodle.
+Our function would be more _abstract_ if it were written for _all dogs_ and it
+just-so-happened that Byron the Poodle was one of the eligible things to
+undergo the function's processes. The process of moving from _concrete_ to
+_abstract_ is called "generalization."
 
 ## Demonstrate "Generalization" By Using _Parameters_ And _Arguments_
 
