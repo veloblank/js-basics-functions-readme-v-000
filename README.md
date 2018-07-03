@@ -184,9 +184,9 @@ been set with `let` inside the function.
 Because our function is now more _general_, we can:
 
 ```javascript
-exerciseDog("Boo", "terrier");
+exerciseDog("Boo", "puggle");
 exerciseDog("Jojo", "mutt");
-exerciseDog("Emmaline", "bernadoodle");
+exerciseDog("Emmeline", "bernedoodle");
 ```
 
 If expected arguments aren't given, the parameters won't be set. The
