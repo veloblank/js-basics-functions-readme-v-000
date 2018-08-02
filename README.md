@@ -261,7 +261,7 @@ functions are defined:
 
 ```javascript
 
-function functionName(arugment1, argument2, argument3) {
+function functionName(argument1, argument2, argument3) {
   body code goes here
 }
 ```
