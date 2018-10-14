@@ -20,7 +20,7 @@ improve.
 
 Abstraction comes from Latin roots which mean "to pull away." It's the
 "take-away" or "impression" of a whole thing.  As humans, we often take sets of
-single actions or things and _abstract them_ into another another word.
+single actions or things and _abstract them_ into another word.
 
 That word that we "pull away" is the "abstraction." Literally it means "the
 pulled away thing." You might not think about it often, but your brain is full
