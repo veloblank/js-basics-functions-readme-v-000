@@ -104,7 +104,7 @@ error for JavaScript.
 
 ## Define "Generalization"
 
-Looking at our abstraction, `exerciseByronThePoodle()`, is pretty concrete, the
+Looking at our abstraction, `exerciseByronThePoodle()` is pretty concrete, the
 opposite of abstract. It's concrete because it only works for Byron the Poodle.
 Our function would be more _abstract_ if it were written for _all dogs_ and it
 just-so-happened that Byron the Poodle was one of the eligible things to
